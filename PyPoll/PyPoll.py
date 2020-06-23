@@ -1,79 +1,82 @@
 import os
 import csv
 
-election_data_csv = os. path. join("..", "Resources", "election_data.csv")
+
+csvpath = os. path. join( "Resources", "election_data.csv")
 
 #Initial variables
-total_votes=[]
-khan=[]
-correy=[]
-li=[]
-otooley=[]
+total_votes=0
+total_candidates=0
+winner_count=0
+khancount=0
+correycount=0
+licount=0
+otooleycount=0
+winner_candidate=""
 
-#Define a function
-def print_percentages(election_data):
-    khan= str(election_data[2])
-    correy=str(election_data[2])
-    li=str(election_data[2])
-    otooley=str(election_data[2])
 
 
 
 
 #Open and read csv file
-with open(election_data_csv) as csvfile:
+with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
 
-    #Read the header row
-    csv_header = next(csvfile)
-    print(f"Header:{csv_header}")
+    #Skip the header row
+    header = next(csvreader)
 
 
-
-    #Read each row after the header
+    #Iterate through rows
     for row in csvreader:
         #Finding total votes
-        total_votes.append(row[0])
-        khan_percent= (int(khan)/total_votes)*100
-        correy_percent= (int(correy)/total_votes)*100
-        li_percent = (int(li)/total_votes)*100
-        otooley_percent = (int(otooley)/total_votes)*100
+        total_votes = total_votes + 1
+        #Finding total votes for each candidates
+        if (row[2]=="Khan"):
+            khancount=khancount+1
+        elif (row[2]=="Correy"):
+            correycount=correycount+1
+        elif (row[2]=="Li"):
+            licount=licount+1
+        elif (row[2]=="O'Tooley"):
+            otooleycount=otooleycount+1
+    #Calculating Percentages for each candidate:
+    khanpercent=round(khancount/total_votes*100,2)
+    correypercent=round(correycount/total_votes*100,2)
+    lipercent=round(licount/total_votes*100,2)
+    otooleypercent=round(otooleycount/total_votes*100,2)
 
-        #Finding total votes for each candidate
-        khan.append(row[2])
-        correy.append(row[2])
-        li.append(row[2])
-        otooley.append(row[2])
+    #Finding max votes for winner
+    winner_count=max(khancount,correycount,licount,otooleycount)
+    if winner_count==khancount:
+        winner_candidate="Khan"
+    elif winner_count==correycount:
+        winner_candidate="Correy"
+    elif winner_count==licount:
+        winner_candidate="Li"
+    else:
+        winner_candidate="O'Tooley"
 
 
-        #Finding the winner
-        winner = max(print_percentages)
-        winner_name=str(winner)
+
 
 #Generate output
-output =(
-    f"Election Results"
-    f"________________________________"
-    f"Total Votes : {len(total_votes)}"
-    f"________________________________"
-    f"Khan : {khan_percent}+ "%"+ "("+ {len(khan)} + ")""
-    f"Correy : {correy_percent} + "%" + "(" + {len(correy)} +")"""
-    f"Li : {li_percent} + "%" + "(" + {len(li)} +")""
-    f"O'Tooley : {otooley_percent} + "%" + "(" + {len(otooley)} + ")""
-    f"_____________________________________________"
-    f"Winner : "+ {print(winner_name)}
-    f"_____________________________________________"
+output = (
+    f"Election Results\n"
+    f"________________________________________\n"
+    f"Total Votes : {total_votes}\n"
+    f"___ ___ ___ ___ ___ ___ ___ ___ ___ ____\n"
+    f"Khan : {khanpercent} %, ({khancount})\n"
+    f"Correy : {correypercent} %, ({correycount})\n"
+    f"Li : {lipercent} %, ({licount})\n"
+    f"O'Tooley : {otooleypercent} %, ({otooleycount})\n"
+    f"____ ____ _____ _____ _____ _____ _____ __\n"
+    f"Winner : {winner_candidate}\n"
+    f"____ ____ ____ _____ _____ _____ _____ ___n"
 )
 print(output)
 
 
 #Save the results to analysis as text file
 file_to_output = os.path.join("Analysis", "poll_analysis.txt")
-with open(file_to_output, "a") as txt_file:
-   txt_file.write(output)
-
-
-
-
-
-
+with open(file_to_output, "w") as txt_file:
+    txt_file.write(output)
