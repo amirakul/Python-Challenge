@@ -37,7 +37,7 @@ greatest_month = total_months[greatest_increase_index]
 greatest_decrease_index = monthly_revenue_change.index(greatest_decrease_in_revenue)+1
 worst_month = total_months[greatest_decrease_index]
 
-# greatest_increase_in_revenue=monthly_revenue_change.index(min(monthly_revenue_change))+1
+
 
 
 #Generate Paragraph Analysis Output
