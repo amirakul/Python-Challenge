@@ -45,7 +45,7 @@ with open(csvpath) as csvfile:
     lipercent=round(licount/total_votes*100,2)
     otooleypercent=round(otooleycount/total_votes*100,2)
 
-    #Finding max votes for winner
+    #Finding max votes for winner using if statements
     winner_count=max(khancount,correycount,licount,otooleycount)
     if winner_count==khancount:
         winner_candidate="Khan"
