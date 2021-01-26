@@ -1,6 +1,6 @@
 import os
 import csv
-
+#Connecting to the data
 csvpath = os.path.join("Resources", "budget_data.csv")
 
 
