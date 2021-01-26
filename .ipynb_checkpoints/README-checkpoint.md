@@ -46,4 +46,6 @@ My goal was to create a Python script that analyzes the votes and calculates eac
   * The winner of the election based on popular vote.
 
 
+Here's the summary table of the above-mentioned calculations:
+![poll_summary](Images/poll_summary.png)
 
