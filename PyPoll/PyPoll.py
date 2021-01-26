@@ -30,7 +30,7 @@ with open(csvpath) as csvfile:
     for row in csvreader:
         #Finding total votes
         total_votes = total_votes + 1
-        #Finding total votes for each candidates
+        #Finding total votes for each candidates using if statements
         if (row[2]=="Khan"):
             khancount=khancount+1
         elif (row[2]=="Correy"):
