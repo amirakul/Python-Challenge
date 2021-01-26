@@ -7,7 +7,7 @@
 This is how the data looks in csv file:
 ![budget_data](Images/budget_data.png)
 
-* My goal was to create a Python script that analyzed the records to calculate each of the following:
+* My goal was to create a Python script that analyze the records to calculate each of the following:
 
   * The total number of months included in the dataset
 
@@ -19,6 +19,9 @@ This is how the data looks in csv file:
 
   * The greatest decrease in losses (date and amount) over the entire period
 
+
+Here's the summary table of the above-mentioned calculations:
+![bank_summary](Images/bank_summary.png)
 
 
 ## PyPoll
