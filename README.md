@@ -27,9 +27,13 @@ Here's the summary table of the above-mentioned calculations:
 ## PyPoll
 
 
-* In this challenge, I was tasked with helping a small, rural town modernize its vote counting process.
+* In this challenge, I was tasked with helping a small, rural town to modernize its vote counting process.
 
-* You was given a set of poll data called election_data.csv. The dataset was composed of three columns: `Voter ID`, `County`, and `Candidate`. My goal was to create a Python script that analyzes the votes and calculates each of the following:
+* I was given a set of poll data called election_data.csv. The dataset was composed of three columns: `Voter ID`, `County`, and `Candidate`. 
+This is how the data I used looks like:
+![election_data](Images/election_data.png)
+
+My goal was to create a Python script that analyzes the votes and calculates each of the following:
 
   * The total number of votes cast
 
