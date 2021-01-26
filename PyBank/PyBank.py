@@ -31,7 +31,7 @@ greatest_increase_in_revenue=max(monthly_revenue_change)
 greatest_decrease_in_revenue=min(monthly_revenue_change)
 
 
-#Locating min and max months
+#Locating min and max months of the revenue
 greatest_increase_index = monthly_revenue_change.index(greatest_increase_in_revenue)+1
 greatest_month = total_months[greatest_increase_index]
 greatest_decrease_index = monthly_revenue_change.index(greatest_decrease_in_revenue)+1
